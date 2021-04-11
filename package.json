@@ -1,0 +1,27 @@
+{
+  "name": "react-gapi-auth2",
+  "version": "0.1.0",
+  "description": "React bindings for gapi.auth2 (Google's OAuth 2.0 JavaScript client)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/narinluangrath/react-gapi-auth2.git"
+  },
+  "keywords": [
+    "React",
+    "Google",
+    "OAuth",
+    "OAuth2.0",
+    "TypeScript",
+    "JavaScript"
+  ],
+  "author": "Narin Luangrath <narin.luangrath@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/narinluangrath/react-gapi-auth2/issues"
+  },
+  "homepage": "https://github.com/narinluangrath/react-gapi-auth2#readme"
+}
