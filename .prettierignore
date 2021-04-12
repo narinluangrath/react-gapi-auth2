@@ -1,0 +1,4 @@
+# Keep in sync with .gitignore
+
+node_modules
+dist
