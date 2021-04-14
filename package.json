@@ -31,8 +31,8 @@
   "homepage": "https://github.com/narinluangrath/react-gapi-auth2#readme",
   "devDependencies": {
     "@types/gapi": "0.0.39",
-    "@types/jest": "^26.0.22",
     "@types/gapi.auth2": "0.0.54",
+    "@types/jest": "^26.0.22",
     "@types/react": "^17.0.3",
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.21.0",
