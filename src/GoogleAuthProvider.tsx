@@ -7,6 +7,7 @@ import React, {
   useCallback,
   useMemo,
   ReactNode,
+  useContext,
 } from "react";
 
 const GOOGLE_API_PLATFORM_LIBRARY = "https://apis.google.com/js/platform.js";
@@ -25,6 +26,10 @@ const GoogleAuthContext = createContext<GoogleAuthValue>({
   googleAuth: null,
   errors: null,
 });
+
+export const useGoogleAuthContext = () => {
+  return useContext(GoogleAuthContext);
+};
 
 export const GoogleAuthProvider = ({
   children,
