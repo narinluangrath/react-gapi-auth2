@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
 // https://github.com/typescript-eslint/typescript-eslint/issues/2540
 // eslint-disable-next-line no-use-before-define
 import React, {
+  FC,
   useEffect,
   useState,
   createContext,
@@ -12,13 +14,13 @@ import React, {
 
 import { loadGooglePlatform } from "./loadGooglePlatform";
 
-type GoogleAuthProps = {
+export type GoogleAuthProps = {
   children: ReactNode;
   clientConfig: gapi.auth2.ClientConfig;
   disableInit?: boolean;
 };
 
-type GoogleAuthValue = {
+export type GoogleAuthValue = {
   googleAuth: gapi.auth2.GoogleAuth | null;
   isAuth2Loaded: boolean;
   isPlatformLoaded: boolean;
@@ -31,11 +33,11 @@ export const useGoogleAuthContext = () => {
   return useContext(GoogleAuthContext);
 };
 
-export const GoogleAuthProvider = ({
+export const GoogleAuthProvider: FC<GoogleAuthProps> = ({
   children,
   clientConfig,
   disableInit = false,
-}: GoogleAuthProps) => {
+}) => {
   const [isPlatformLoaded, setIsPlatformLoaded] = useState(false);
   const [isAuth2Loaded, setIsAuth2Loaded] = useState(false);
   const [googleAuth, setGoogleAuth] = useState<gapi.auth2.GoogleAuth | null>(

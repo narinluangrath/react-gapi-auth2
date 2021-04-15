@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 
 import { useGoogleAuthContext } from "./GoogleAuthProvider";
 
-type SignInButtonProps = {
+export type SignInButtonProps = {
   id?: string;
   options?: {
     scope?: string;
