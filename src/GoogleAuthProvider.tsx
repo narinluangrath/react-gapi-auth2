@@ -22,10 +22,7 @@ type GoogleAuthValue = {
   errors: Error[] | null;
 };
 
-const GoogleAuthContext = createContext<GoogleAuthValue>({
-  googleAuth: null,
-  errors: null,
-});
+const GoogleAuthContext = createContext<GoogleAuthValue | null>(null);
 
 export const useGoogleAuthContext = () => {
   return useContext(GoogleAuthContext);
