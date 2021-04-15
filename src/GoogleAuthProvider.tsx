@@ -67,7 +67,7 @@ export const GoogleAuthProvider: FC<GoogleAuthProps> = ({
   // After the platform library loads, load the `auth2` library
   useEffect(() => {
     if (isPlatformLoaded && !isAuth2Loaded) {
-      window.gapi.load("auth2", {
+      window.gapi.load("auth2:signin2", {
         onerror: () => addError("Error loading auth2 library"),
         callback: () => {
           setIsAuth2Loaded(true);
