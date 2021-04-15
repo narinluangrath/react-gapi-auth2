@@ -9,7 +9,9 @@ export const useAuthentication = () => {
   );
 
   if (!context) {
-    throw Error("Must use `useAuthentication` inside of `GoogleAuthProvider`");
+    throw Error(
+      "react-gapi-auth2: Must use `useAuthentication` inside of `GoogleAuthProvider`"
+    );
   }
 
   // Listen for changes in the current user's sign-in state.
