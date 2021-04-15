@@ -29,5 +29,5 @@ export const SignInButton = (props: SignInButtonProps) => {
     gapi.signin2.render(id, options);
   }, [id, options]);
 
-  return <button id={id} />;
+  return <div id={id} />;
 };
