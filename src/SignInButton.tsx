@@ -26,8 +26,10 @@ export const SignInButton = (props: SignInButtonProps) => {
   }
 
   useEffect(() => {
-    gapi.signin2.render(id, options);
-  }, [id, options]);
+    if (context.isAuth2Loaded) {
+      gapi.signin2.render(id, options);
+    }
+  }, [id, options, context.isAuth2Loaded]);
 
   return <div id={id} />;
 };
