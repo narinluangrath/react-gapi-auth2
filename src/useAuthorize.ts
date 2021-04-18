@@ -1,34 +1,30 @@
 import { useState, useEffect } from "react";
 
-import { useGoogleAuthContext } from "./GoogleAuthProvider";
+import { useGApiContext } from "./GApiProvider";
 
 export const useAuthorize = (authorizeConfig: gapi.auth2.AuthorizeConfig) => {
-  const context = useGoogleAuthContext();
+  const context = useGApiContext();
   const [error, setError] = useState<Error | null>(null);
   const [
     authorizeResponse,
     setAuthroizeResponse,
   ] = useState<gapi.auth2.AuthorizeResponse | null>(null);
 
-  if (context?.googleAuth) {
-    throw Error(
-      "react-gapi-auth2: You must pass `disableInit` prop to `<GoogleAuthProvider  />`, when using with `useAuthorize`. Did you mean to use `useAuthentication`?"
-    );
+  if (!context) {
+    throw Error("Must use `useAuthorize` inside of `GoogleAuthProvider`");
   }
 
   useEffect(() => {
     gapi.auth2.authorize(authorizeConfig, (res) => {
       if (res.error) {
-        setError(
-          new Error(`react-gapi-auth2: ${res.error_subtype}, ${res.error}`)
-        );
+        setError(Error(`${res.error_subtype}, ${res.error}`));
       }
       setAuthroizeResponse(res);
     });
   }, [authorizeConfig]);
 
   return {
-    errors: context?.errors ? [...context.errors, error] : [error],
+    error: context.error || error,
     authorizeResponse,
   };
 };
