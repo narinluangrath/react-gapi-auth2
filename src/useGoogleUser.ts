@@ -4,14 +4,20 @@ import { useGApiContext } from "./GApiProvider";
 import { useGoogleAuth } from "./useGoogleAuth";
 
 export type GoogleUserValue = {
+  /**
+   * Any error from loading the `GoogleUser` object
+   */
   error: Error | null;
+  /**
+   * A `GoogleUser` object represents one user account.
+   */
   currentUser: gapi.auth2.GoogleUser | null;
 };
 
 /**
- * A declarative wrapper around the `GoogleUser` object described {@link https://developers.google.com/identity/sign-in/web/reference#users}
+ * A declarative wrapper around the `GoogleUser` object described here {@link https://developers.google.com/identity/sign-in/web/reference#users}. This automatically listens for changes to the `currentUser`
+ * and updates the return value.
  *
- * A `GoogleUser` object represents one user account.
  */
 export const useGoogleUser = () => {
   const { error: gApiError } = useGApiContext() || {};
@@ -21,7 +27,7 @@ export const useGoogleUser = () => {
   );
   const [error, setError] = useState<Error | null>(null);
 
-  // Listen for changes in the current user's sign-in state.
+  // Listen for changes in `currentUser`.
   useEffect(() => {
     if (googleAuth) {
       try {

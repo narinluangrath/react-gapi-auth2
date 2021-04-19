@@ -45,12 +45,14 @@ export type SignInButtonProps = {
   };
 };
 
+const defaultOptions = {};
+
 /**
  * Render the default sign in button provided by `gapi.signin2.render`
  */
 export const SignInButton: FC<SignInButtonProps> = ({
   id = "react-gapi-auth2-sign-in-button",
-  options = {},
+  options = defaultOptions,
 }) => {
   const context = useGApiContext();
 
@@ -58,11 +60,13 @@ export const SignInButton: FC<SignInButtonProps> = ({
     throw Error("Must use `SignInButton` inside of `GoogleAuthProvider`");
   }
 
+  const { isAuth2Loaded } = context;
+
   useEffect(() => {
-    if (context.isAuth2Loaded) {
+    if (isAuth2Loaded) {
       gapi.signin2.render(id, options);
     }
-  }, [id, options, context.isAuth2Loaded]);
+  }, [id, options, isAuth2Loaded]);
 
   return <div id={id} />;
 };
