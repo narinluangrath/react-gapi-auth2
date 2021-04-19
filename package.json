@@ -7,7 +7,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "deploy": "npm publish --access public",
+    "deploy:patch": "npm version patch && npm publish --access public",
+    "deploy:minor": "npm version minor && npm publish --access public",
+    "deploy:major": "npm version major && npm publish --access public",
     "test": "jest",
     "prepare": "husky install",
     "docs": "typedoc --out docs src/index.ts"
