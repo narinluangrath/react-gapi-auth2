@@ -7,14 +7,14 @@ React bindings for `gapi.auth2` (Google's OAuth 2.0 JavaScript client)
 [`gapi.auth2`](https://developers.google.com/identity/sign-in/web/reference) is Google's OAuth2.0 client side library. It's great for implementing "Sign in with Google" in a non-framework "vanilla" JS app. However, using it in a React app is has some rough edges,
 
 - It involves loading `<script />` tags [manually](https://developers.google.com/identity/sign-in/web/sign-in)
-- The `gapi.auth2` api has _some_ imperative, which is awkward to integrate with declarative code
+- The `gapi.auth2` api has _some_ imperative code, which is awkward to integrate with declarative code
 
 There are already other React libraries that attempt solve these problems, however, they tend to create unnecessary abstractions on top of an already simple api. The entire `gapi.auth2` libarary only involes two javascript classes 
 
-- `GoogleAuth`: "a singleton class that provides methods to allow the user to sign in with a Google account"
+- `GoogleAuth`: a "singleton class that provides methods to allow the user to sign in with a Google account"
 - `GoogleUser`: an "object represents one user account"
 
-This library provides two hooks `useGoogleAuth` and `useGoogleUser` that provide access to those objects. Anything you could do with the existing `gapi.auth2` library, you can do with `react-gapi-auth2`.
+This library provides two hooks `useGoogleAuth` and `useGoogleUser` that provide easier access to those objects. The majority of the api provided by `gapi.auth2` is intentionally left unchanged. Anything you can do with the existing `gapi.auth2` library, you can do with `react-gapi-auth2`.
 
 ## Gettings Started
 
@@ -29,7 +29,7 @@ npm install --save react-gapi-auth2
 
 ### Basic Usage
 
-Wrap your application with the provider,
+Wrap your application with the provider, which manages loading the `gapi.auth2` library
 
 ```jsx
 // App.jsx
@@ -53,8 +53,6 @@ const App = ({ children }) => (
 
 export default App;
 ```
-
-The provider manages loading the `gapi.auth2` library.  
 
 Then you can use the provided hooks
 
@@ -91,7 +89,7 @@ const SignIn = ({ children }) => {
 export default SignIn;
 ```
 
-You can also use the built in SignIn button provided by this library, which simply a wrapper around `gapi.signin2.render`.
+Or use the built in `SignInButton` provided by this library, which simply a wrapper around `gapi.signin2.render`
 
 
 ```jsx
@@ -117,7 +115,7 @@ export default MySignInButton;
 
 ### Advanced Usage
 
-This library also provides a hook called `useAuthorize`, which is a declarative wrapper around `gapi.auth2.authroize`.  This method should only be used in advanced use cases, such as those described by GApi's documentation
+This library also provides a hook called `useAuthorize`, which is a wrapper around `gapi.auth2.authroize`.  This method should only be used in advanced use cases, such as those described by GApi's documentation
 
 ```
 - Your application only needs to requests a Google API endpoint once, for instance to load the user's favorite YouTube videos the first time they sign in.
