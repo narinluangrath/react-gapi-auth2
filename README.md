@@ -67,12 +67,12 @@ const SignIn = ({ children }) => {
   const { googleAuth } = useGoogleAuth();
   // The `GoogleUser` object described here:
   // https://developers.google.com/identity/sign-in/web/reference#users
-  const { googleUser } = useGoogleUser();
+  const { currentUser } = useGoogleUser();
 
   if (googleAuth.isSignedIn) {
     return (
       <>
-        <p>Welcome user {googleUser.getBasicProfile().getName()}</p>
+        <p>Welcome user {currentUser.getBasicProfile().getName()}</p>
         <button onClick={() => googleAuth.signOut()}>Sign Out</button>
       </>
     )
