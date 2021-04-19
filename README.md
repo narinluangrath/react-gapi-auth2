@@ -89,7 +89,7 @@ const SignIn = ({ children }) => {
 export default SignIn;
 ```
 
-Or use the built in `SignInButton` provided by this library, which simply a wrapper around `gapi.signin2.render`
+Or use the built in `SignInButton` provided by this library, which is simply a wrapper around `gapi.signin2.render`
 
 
 ```jsx
