@@ -1,6 +1,6 @@
 {
   "name": "react-gapi-auth2",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "React bindings for gapi.auth2 (Google's OAuth 2.0 JavaScript client)",
   "main": "dist/index.js",
