@@ -26,7 +26,7 @@ export type GoogleAuthValue = {
  * This hook manages loading the `GoogleAuth` object (by calling `gapi.auth2.init`).
  * This hook also listens for changes to the signedIn state and updates the return value.
  */
-export const useGoogleAuth = () => {
+export const useGoogleAuth = (): GoogleAuthValue => {
   const context = useGApiContext();
   const [googleAuth, setGoogleAuth] = useState<gapi.auth2.GoogleAuth | null>(
     null

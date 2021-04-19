@@ -9,8 +9,7 @@
     "build": "tsc",
     "deploy": "npm publish --access public",
     "test": "jest",
-    "prepare": "husky install",
-    "docs": "typedoc --out docs src/index.ts"
+    "prepare": "husky install" 
   },
   "repository": {
     "type": "git",
@@ -64,6 +63,7 @@
       "eslint --fix",
       "prettier --write"
     ],
-    "src/**/*.{scss,css,md}": "prettier --write"
+    "src/**/*.{scss,css,md}": "prettier --write",
+    "src/**/*": "typedoc --out docs src/index.ts"
   }
 }

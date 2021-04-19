@@ -19,7 +19,7 @@ export type GoogleUserValue = {
  * and updates the return value.
  *
  */
-export const useGoogleUser = () => {
+export const useGoogleUser = (): GoogleUserValue => {
   const { error: gApiError } = useGApiContext() || {};
   const { googleAuth, error: googleAuthError } = useGoogleAuth();
   const [currentUser, setCurrentUser] = useState(
