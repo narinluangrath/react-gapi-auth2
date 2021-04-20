@@ -16,7 +16,7 @@ There are already other React libraries that attempt solve these problems, howev
 
 This library provides two hooks `useGoogleAuth` and `useGoogleUser` that provide easier access to those objects. The majority of the api provided by `gapi.auth2` is intentionally left unchanged. Anything you can do with the existing `gapi.auth2` library, you can do with `react-gapi-auth2`.
 
-## Gettings Started
+## Getting Started
 
 ### Install
 
@@ -67,12 +67,12 @@ const SignIn = ({ children }) => {
   const { googleAuth } = useGoogleAuth();
   // The `GoogleUser` object described here:
   // https://developers.google.com/identity/sign-in/web/reference#users
-  const { googleUser } = useGoogleUser();
+  const { currentUser } = useGoogleUser();
 
   if (googleAuth.isSignedIn) {
     return (
       <>
-        <p>Welcome user {googleUser.getBasicProfile().getName()}</p>
+        <p>Welcome user {currentUser.getBasicProfile().getName()}</p>
         <button onClick={() => googleAuth.signOut()}>Sign Out</button>
       </>
     )
