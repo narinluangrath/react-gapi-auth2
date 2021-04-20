@@ -4,6 +4,7 @@
 import React, { useEffect, FC } from "react";
 
 import { useGApiContext } from "./GApiProvider";
+import { useGoogleAuth } from "./useGoogleAuth";
 
 export type SignInButtonProps = {
   /**
@@ -55,6 +56,7 @@ export const SignInButton: FC<SignInButtonProps> = ({
   options = defaultOptions,
 }) => {
   const context = useGApiContext();
+  const { googleAuth } = useGoogleAuth();
 
   if (!context) {
     throw Error("Must use `SignInButton` inside of `GoogleAuthProvider`");
@@ -63,10 +65,10 @@ export const SignInButton: FC<SignInButtonProps> = ({
   const { isAuth2Loaded } = context;
 
   useEffect(() => {
-    if (isAuth2Loaded) {
+    if (isAuth2Loaded && googleAuth) {
       gapi.signin2.render(id, options);
     }
-  }, [id, options, isAuth2Loaded]);
+  }, [id, options, isAuth2Loaded, googleAuth]);
 
   return <div id={id} />;
 };
