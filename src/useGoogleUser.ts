@@ -31,7 +31,7 @@ export const useGoogleUser = (): GoogleUserValue => {
   useEffect(() => {
     if (googleAuth) {
       try {
-        googleAuth.currentUser.listen(setCurrentUser);
+        googleAuth.currentUser.listen((user) => setCurrentUser(user));
       } catch (e) {
         setError(e);
       }

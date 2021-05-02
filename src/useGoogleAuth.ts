@@ -56,7 +56,7 @@ export const useGoogleAuth = (): GoogleAuthValue => {
   useEffect(() => {
     if (isAuth2Loaded && googleAuth) {
       try {
-        googleAuth.isSignedIn.listen(setIsSignedIn);
+        googleAuth.isSignedIn.listen((signedIn) => setIsSignedIn(signedIn));
       } catch (e) {
         setError(e);
       }
