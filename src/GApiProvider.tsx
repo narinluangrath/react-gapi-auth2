@@ -68,7 +68,6 @@ export const GApiProvider: FC<GApiProps> = ({ children, clientConfig }) => {
         (e) =>
           setError(Error(`Error loading Google APIs platform \n${e.message}`))
       );
-      setIsPlatformLoaded(true);
       return cleanup;
     }
   }, []);
