@@ -9,7 +9,7 @@ React bindings for `gapi.auth2` (Google's OAuth 2.0 JavaScript client)
 - It involves loading `<script />` tags [manually](https://developers.google.com/identity/sign-in/web/sign-in)
 - The `gapi.auth2` api has _some_ imperative code, which is awkward to integrate with declarative code
 
-There are already other React libraries that attempt solve these problems, however, they tend to create unnecessary abstractions on top of an already simple api. The entire `gapi.auth2` libarary only exposes two javascript classes 
+There are already other React libraries that attempt solve these problems, however, they tend to create unnecessary abstractions on top of an already simple api. The entire `gapi.auth2` library only exposes two javascript classes 
 
 - `GoogleAuth`: a "singleton class that provides methods to allow the user to sign in with a Google account"
 - `GoogleUser`: an "object represents one user account"
